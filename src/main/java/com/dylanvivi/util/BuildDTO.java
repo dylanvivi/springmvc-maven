@@ -29,7 +29,7 @@ public class BuildDTO
 		DataBase db = new DataBase();
 		try
 		{
-			String pojoName = StringUtil.firstToUpperAndReplace(tableName);
+			String pojoName = StringUtils.firstToUpperAndReplace(tableName);
 			
 			/***---------------修改生成位置-------------------------------------*/
 			
@@ -71,7 +71,7 @@ public class BuildDTO
 
 				//获取列名
 				String column = metaData.getColumnName(i).toUpperCase();
-				String columName = StringUtil.replaceUnderlineAndfirstToUpper(metaData.getColumnName(i).toLowerCase());
+				String columName = StringUtils.replaceUnderlineAndfirstToUpper(metaData.getColumnName(i).toLowerCase());
 				//获取每一列类型
 				int type = metaData.getColumnType(i);
 
@@ -126,7 +126,7 @@ public class BuildDTO
 				String setStr = "";
 				String typeStr = "";
 				//获取列名
-				String columName = StringUtil.replaceUnderlineAndfirstToUpper(metaData.getColumnName(i).toLowerCase());
+				String columName = StringUtils.replaceUnderlineAndfirstToUpper(metaData.getColumnName(i).toLowerCase());
 				//获取每一列类型
 				int type = metaData.getColumnType(i);
 				//判断
