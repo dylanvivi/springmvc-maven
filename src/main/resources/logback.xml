@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender"> 
+        <encoder charset="UTF-8">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger [%M:%L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+ 
+    <root level="DEBUG">
+        <appender-ref ref="stdout" />
+    </root>
+    
+    
+    <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏  -->
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.web.servlet.mvc.annotation" level="WARN"/>
+    <logger name="com.opensymphony" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+ 	<logger name="freemarker.cache" level="WARN"/>
+ 	<logger name="com.mchange.v2" level="INFO"/>
+ 	
+    <!-- show parameters for hibernate sql 专为 Hibernate 定制 
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG"/>
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>
+    -->
+</configuration>
