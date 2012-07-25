@@ -3,28 +3,30 @@ package com.dylanvivi.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 
 
 public interface IBaseDao{
 	/**
-	 * 储存对象，返回主键
+	 * 储存对象，返回插入条数
 	 * @param model
 	 * @return
 	 */
-    public <T>int save(Class<T> clazz);
+    public <T>int save(Object obj);
 
     /**
      * 存在则更新，反之插入，返回记录条数
      * @param clazz
      * @return
      */
-    public <T>int saveOrUpdate(Class<T> clazz);
+    public <T>int saveOrUpdate(Object obj);
     
     /**
      * 更新
      * @param clazz
      */
-    public <T> int update(Class<T> clazz);
+    public <T> int update(Object obj);
     
     /**
      * 根据sql更新
@@ -51,7 +53,7 @@ public interface IBaseDao{
      * 删除对象
      * @param clazz
      */
-    public <T> void deleteObject(Class<T> clazz);
+    public <T> int deleteObject(Object obj);
 
     /**
      * 根据id查找对象
@@ -107,8 +109,8 @@ public interface IBaseDao{
      */
     public boolean exists(String sql,Object...args );
     
-    public void flush();
+    public int countAll(String sql,Object... args);
     
-    public void clear();
+    public JdbcTemplate getJdbcTemplate();
 
 }

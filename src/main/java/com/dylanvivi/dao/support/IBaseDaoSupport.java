@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.dylanvivi.dao.IBaseDao;
+import com.dylanvivi.dao.SQLBuilder;
+import com.dylanvivi.dao.TableProcessor;
 
 public class IBaseDaoSupport extends JdbcTemplate implements IBaseDao{
 	
@@ -18,45 +20,63 @@ public class IBaseDaoSupport extends JdbcTemplate implements IBaseDao{
 	}
 
 	@Override
-	public <T> int save(Class<T> clazz) {
-		// TODO Auto-generated method stub
-		return 0;
+	public <T> int save(Object obj) {
+		Object[] param = SQLBuilder.insertSQL(obj);
+		int count = jdbcTemplate.update((String)param[0], param[1]);
+		return count;
 	}
 
 	@Override
-	public <T> int saveOrUpdate(Class<T> clazz) {
-		// TODO Auto-generated method stub
-		return 0;
+	public <T> int saveOrUpdate(Object obj) {
+		int count = update(obj);
+		if(count == 0){
+			count = save(obj);
+		}
+		return count;
 	}
 
 	@Override
-	public <T> int update(Class<T> clazz) {
-		// TODO Auto-generated method stub
-		return 0;
+	public <T> int update(Object obj) {
+		Object[] param = SQLBuilder.updateSQL(obj);
+		int count = getJdbcTemplate().update((String)param[0],param[1]);
+		return count;
 	}
 
 	@Override
 	public <T> int delete(T id) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	@Override
-	public <T> void deleteObject(Class<T> clazz) {
-		// TODO Auto-generated method stub
+	public <T> int deleteObject(Object obj) {
+		Object[] param = SQLBuilder.deleteSQL(obj);
+		int count = getJdbcTemplate().update((String)param[0], param[1]);
+		return count;
 		
 	}
 
 	@Override
 	public <T> T findById(Class<T> clazz, Object... args) {
-		// TODO Auto-generated method stub
+		String sql = SQLBuilder.findByIdSql(clazz);
+		
 		return null;
 	}
 
 	@Override
 	public <T> int countAll(Class<T> clazz) {
-		// TODO Auto-generated method stub
+		
 		return 0;
+	}
+	
+	@Override
+	public int queryForInt(String sql,Object... args){
+		return jdbcTemplate.queryForInt(sql,args);
+	}
+	
+	@Override
+	public int countAll(String sql,Object... args) {
+		return jdbcTemplate.queryForInt(sql,args);
 	}
 
 	@Override
@@ -66,8 +86,7 @@ public class IBaseDaoSupport extends JdbcTemplate implements IBaseDao{
 
 	@Override
 	public List<Map<String, Object>> queryList(String sql, Object... args) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForList(sql,args);
 	}
 
 	@Override
@@ -79,22 +98,16 @@ public class IBaseDaoSupport extends JdbcTemplate implements IBaseDao{
 			return false;
 	}
 
-	@Override
-	public void flush() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public <T> boolean exists(Class<T> clazz) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public JdbcTemplate getJdbcTemplate() {
+		return this.jdbcTemplate;
 	}
 
 	
