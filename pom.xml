@@ -63,12 +63,12 @@
     </dependency>
       <!-- jdbc begin -->
 
-          <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.4.0</version>
-        </dependency>
-        
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+            
         <dependency>
             <groupId>c3p0</groupId>
             <artifactId>c3p0</artifactId>

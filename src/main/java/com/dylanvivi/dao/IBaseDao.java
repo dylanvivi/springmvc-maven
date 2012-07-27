@@ -13,7 +13,7 @@ public interface IBaseDao{
 	 * @param model
 	 * @return
 	 */
-    public <T>int save(Object obj);
+    public int save(Object obj);
 
     /**
      * 存在则更新，反之插入，返回记录条数
@@ -41,13 +41,6 @@ public interface IBaseDao{
 	 * @return
 	 */
 	public int queryForInt(String sql,Object... args);
-    
-    /**
-     * 删除by Id
-     * @param id
-     * @return
-     */
-    public <T> int delete(T id);
     
     /**
      * 删除对象
@@ -93,14 +86,6 @@ public interface IBaseDao{
 	 * @return
 	 */
 	public Map<String, Object> queryForMap(String sql, Object... args);
-
-    
-    /**
-     * 检查对象是否存在
-     * @param id
-     * @return
-     */
-    public <T> boolean exists(Class<T> clazz);
     
     /**
      * 检查对象是否存在

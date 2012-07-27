@@ -47,7 +47,7 @@ public class BuildDTO
 			pw.println(" * 通过数据库内表的字段动态生成 javabean");
 			pw.println(" * @author dylan");
 			pw.println(" **/");
-			pw.println("@Table(value = \""+tableName+"\")");
+			pw.println("@Table(name = \""+tableName+"\")");
 			pw.println("public class "+pojoName+" {\t");
 
 			//创建连接
@@ -108,7 +108,7 @@ public class BuildDTO
 
 				//输出 private 的字段
 				
-				pw.println("\t@Column(value=\""+column+"\")");
+				pw.println("\t@Column(name=\""+column+"\")");
 				pw.println("\t"+pStr+"\n");
 
 			}

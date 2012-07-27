@@ -2,6 +2,7 @@ package com.dylanvivi.dao;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import com.dylanvivi.dao.annotation.Column;
 import com.dylanvivi.dao.annotation.Id;
 import com.dylanvivi.dao.annotation.Table;
 
-public class TableProcessor {
+public class BeanProcessor {
 	
 	//拿到当前行的名字
 	public static String getFieldName(Field field){
@@ -73,21 +74,21 @@ public class TableProcessor {
 	}
 	
 	public static void typeMapper(ResultSet rs, Object obj, Field field) throws IllegalArgumentException, IllegalAccessException, SQLException{
-		Class<?> clz = field.getClass();
+		Class<?> clz = field.getType(); //field.getClass()是得到类的信息，.getType是当前行的信息
 		String fieldName = getFieldName(field);
 		if(clz.equals(String.class)){
 			field.set(obj, rs.getString(fieldName));
-		}else if(clz.equals(Integer.class)){
+		}else if(clz.equals(Integer.class) || clz.equals(int.class)){
 			field.set(obj, rs.getInt(fieldName));
-		}else if(clz.equals(Double.class)){
+		}else if(clz.equals(Double.class) || clz.equals(double.class)){
 			field.set(obj, rs.getDouble(fieldName));
-		}else if(clz.equals(Float.class)){
+		}else if(clz.equals(Float.class) || clz.equals(float.class)){
 			field.set(obj, rs.getFloat(fieldName));
 		}else if(clz.equals(Date.class)){
 			field.set(obj, rs.getTimestamp(fieldName));
 		}else if(clz.equals(Byte.class)){
 			field.set(obj, rs.getByte(fieldName));
-		}else if(clz.equals(Boolean.class)){
+		}else if(clz.equals(Boolean.class) || clz.equals(boolean.class)){
 			field.set(obj, rs.getBoolean(fieldName));
 		}else if(clz.equals(Object.class)){
 			field.set(obj, rs.getObject(fieldName));
