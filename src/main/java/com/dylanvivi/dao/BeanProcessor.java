@@ -1,8 +1,7 @@
 package com.dylanvivi.dao;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -4,14 +4,14 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.dylanvivi.util.StringUtils;
 
 public class SQLBuilder {
 
-	private final static Log log = LogFactory.getLog(SQLBuilder.class);
+	private final static Logger log = LoggerFactory.getLogger(SQLBuilder.class);
 
 	public static Object[] insertSQL(Object obj) {
 		String tablename = BeanProcessor.getTableName(obj);

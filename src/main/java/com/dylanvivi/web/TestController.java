@@ -1,7 +1,8 @@
 package com.dylanvivi.web;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import com.dylanvivi.service.TestService;
 @Controller
 public class TestController {
 	
-	private Log log = LogFactory.getLog(TestController.class);
+	private Logger log = LoggerFactory.getLogger(TestController.class);
 	
 	@Autowired
 	private TestService service;

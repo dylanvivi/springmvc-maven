@@ -75,6 +75,34 @@
             <version>0.9.1.2</version>
         </dependency>
         <!-- jdbc end -->
+                <!-- logging begin -->
+        <!--slf4j+logback, 并桥接log4j和commons-logging, 同时要去除spring3 CharacterEncodingFilter 依赖commons-logging.jar包 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        <!-- logging end -->
         <dependency>
         	<groupId>org.springframework</groupId>
         	<artifactId>spring-tx</artifactId>
