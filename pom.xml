@@ -113,11 +113,29 @@
         	<artifactId>spring-core</artifactId>
         	<version>3.1.1.RELEASE</version>
         </dependency>
-        <dependency>
-        	<groupId>org.json</groupId>
-        	<artifactId>json</artifactId>
-        	<version>20090211</version>
-        </dependency>
+	
+        <!-- poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>3.2-FINAL</version>
+		</dependency>
+		<!-- poi end -->
+		<!-- json配置 -->
+		<dependency>
+	      <groupId>net.sf.json-lib</groupId>
+	      <artifactId>json-lib</artifactId>
+	      <version>2.1</version>  
+   		  <classifier>jdk15</classifier>  
+    	</dependency>
+    	<!-- json end -->
+    	<!-- java mail -->
+    	<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+    	<!-- end java mail -->
   </dependencies>
   <build>
     <finalName>com.dylanvivi.maven-springmvc</finalName>

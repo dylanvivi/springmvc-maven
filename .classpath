@@ -10,5 +10,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/workspace/springmvc-maven/webapp/WEB-INF/lib/lemon-core-1.0.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

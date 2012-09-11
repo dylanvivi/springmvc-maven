@@ -23,11 +23,11 @@ import org.json.JSONObject;
  * @since 2012.07
  *
  */
-public class JsonUtils {
+public class JsonUtil {
 	
 	private final static String DATEFORMAT = "yyyy-MM-dd HH:mi:ss";
 	
-	private static Log log = LogFactory.getLog(JsonUtils.class);
+	private static Log log = LogFactory.getLog(JsonUtil.class);
 	
 	/**
 	 * 日期型转换格式
